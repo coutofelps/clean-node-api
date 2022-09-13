@@ -22,7 +22,7 @@ const makeAddAccount = (): AddAccount => {
                 password: 'valid_password'
             }
 
-            return new Promise(resolve => (fakeAccount))
+            return new Promise(resolve => resolve((fakeAccount)))
         } 
     }
 
