@@ -1,11 +1,11 @@
 import { SignUpController } from './signup'
 import { InvalidParamError, MissingParamError, ServerError } from '../../errors'
 import { EmailValidator, AccountModel, AddAccount, AddAccountModel } from './signup-protocols'
-
+ 
 const makeEmailValidator = (): EmailValidator => {
     class EmailValidatorStub implements EmailValidator {
         isValid(email: string): boolean {
-            return false
+            return true
         } 
     }
 
@@ -222,7 +222,7 @@ describe('SignUp Controller', () => {
             }
         }
 
-        const test = sut.handle(httpRequest)
+        sut.handle(httpRequest)
 
         expect(addSpy).toHaveBeenCalledWith({
             name: 'any_name',
